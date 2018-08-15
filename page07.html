@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript">
+        //1.декларация функция
+        var msg = 'Плащането е извършено успешно';
+
+        function showMessage(text, level){
+            document.write('<h'+level+'>' + text + '</h'+level+'>');
+        }
+        
+        //2.извикване на функцията
+        showMessage('Успешен логин', 3);
+        showMessage('Продуктът не е наличен!', 4);
+        showMessage( msg, 2);
+    </script>
+</head>
+<body>
+    <noscript>
+        Моля, разрешете изпълнението на JS за да използвате 
+        услугите на сайта!
+    </noscript>
+</body>
+</html>
