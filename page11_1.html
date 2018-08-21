@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello</h1>
+    <noscript>
+        Моля, разрешете изпълнението на JS за да използвате 
+        услугите на сайта!
+    </noscript>
+    <!-- Неблокиращо включване -->
+    <!--
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    -->
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <script>
+        //Специфичен за стр. JS
+        $(document).ready(function(){
+            $('h1').html('<em>Hello</em> jQuery');
+        });
+    </script>
+</body>
+</html>

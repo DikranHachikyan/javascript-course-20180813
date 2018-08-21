@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="title">jQuery Selectors</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste, officia earum, qui enim repellendus rem quaerat at eligendi doloribus nostrum nesciunt sunt. Labore possimus rem cupiditate, obcaecati atque libero alias.
+    </p>
+    <p class="txt">Hic <a href="#" title="nulla ex officia">nulla ex officia</a> fugiat repellendus laboriosam corporis non eius fuga, dolor recusandae blanditiis quibusdam cumque soluta voluptatem animi maiores quisquam sed cupiditate ullam sunt est! Molestias, a debitis dolore.
+    </p>
+    <p>Numquam  <a href="#" title="consequatur debitis">consequatur debitis, iste</a>, nesciunt similique doloribus veritatis delectus distinctio error modi non sed. Porro aspernatur debitis eius doloribus reprehenderit quia delectus facilis, asperiores accusantium eveniet soluta alias nihil atque.
+    </p>
+    <p class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. <a href="#" >Itaque laborum</a> cum, laudantium quas, error ducimus nisi ex, vel sint dignissimos neque tempora enim porro, sed perspiciatis dolore voluptatum eum. Debitis!
+    </p>
+    <noscript>
+        Моля, разрешете изпълнението на JS за да използвате 
+        услугите на сайта!
+    </noscript>
+    <!-- Неблокиращо включване -->
+    <!--
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    -->
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <script>
+        //Специфичен за стр. JS
+        $(document).ready(function(){
+           $('p').css('background-color','#ccc');
+           $('.txt').css('border','1px solid red');
+           $('#title').css('font-family','monospace');
+           $('a[title]').css('text-decoration','none'); 
+        });
+    </script>
+</body>
+</html>
