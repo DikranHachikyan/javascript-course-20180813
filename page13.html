@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        ul {
+           list-style: none;
+        }
+        li a {
+            text-decoration: none;
+        }
+        li img {
+            margin-right: 6px;
+        }
+    </style>
+</head>
+<body>
+    <h1></h1>
+    <h2></h2>
+    <ul>
+        <li><a href="http://no.com/audio-book.mp3">Book</a></li>
+        <li><a href="http://no.com/jquery-tutorial.mp4">jQuery Tutorial</a></li>
+        <li><a href="http://no.com/cv.doc">My CV</a></li>
+        <li><a href="http://no.com/report.pdf">Report</a></li>
+    </ul>
+    <p></p>
+    <noscript>
+        Моля, разрешете изпълнението на JS за да използвате 
+        услугите на сайта!
+    </noscript>
+    <!-- Неблокиращо включване -->
+    <!--
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    -->
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <script>
+        //Специфичен за стр. JS
+        $(document).ready(function(){
+            $('li a[href$="mp4"]')
+                    .before('<img src="./images/video-x-generic.png" />');
+            $('li a[href$="mp3"]')
+                    .before('<img src="./images/audio-x-generic.png" />')
+                    .after('(<em>audio</em>)')
+                    .css('font-family','monospace');
+
+            $('li a[href$="doc"]')
+                    .before('<img src="./images/x-office-document.png" />');
+            $('li a[href$="pdf"]')
+                    .before('<img src="./images/package-x-generic.png" />');
+
+            $('li img').css('border', '1px solid red');
+            $('li a[href^="http"]').css('background-color', 'yellow');
+
+            $('h1').html('Resource <em>files</em>');
+            //$('h2').html("<scrip>>");
+            $('p').text('Lorem <em>ipsum dolor</em> sit amet, consectetur elit.');
+        });//on document ready
+    </script>
+</body>
+</html>
