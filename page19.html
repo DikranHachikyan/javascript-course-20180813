@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        ul#gallery li+li {
+            display: none;
+        }
+
+        ul#gallery {
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <ul id="gallery">
+        <li><img src="./pics-large/pic1-320x240.jpg"></li>
+        <li><img src="./pics-large/pic2-320x240.jpg" ></li>
+        <li><img src="./pics-large/pic3-320x240.jpg" ></li>
+        <li><img src="./pics-large/pic4-320x240.jpg" ></li>
+        <li><img src="./pics-large/pic5-320x240.jpg" ></li>
+    </ul>
+    <div>
+        <input type="button" value="<<" id="prv">
+        <input type="button" value="Auto" id="slide">
+        <input type="button" value=">>" id="nxt">
+    </div>
+    <noscript>
+        Моля, разрешете изпълнението на JS за да използвате 
+        услугите на сайта!
+    </noscript>
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var intervalId = 0;
+            var buttonLabel = '';
+            $('#nxt').click(function(event){
+                showNext();//извикване на функцията
+                           //кодът се изпълнява при click
+            });
+            //#prv за домашно
+            $('#prv').click(function(event){
+                $('#gallery li:last-child').prependTo($('#gallery'));
+            });
+
+            $('#slide').click(function(event){
+                 if(intervalId > 0){ //автоматично сменяме (намираме се в момента)
+                    clearInterval(intervalId);
+                    intervalId = 0;
+                    buttonLabel = 'Auto';
+                 }
+                 else{ //ръчно
+                                //"казваме" коя функция трябва да се изпълни
+                                //при изтичане на 2000 ms
+                    intervalId = setInterval( showNext , 2000);
+                    buttonLabel = 'Stop';
+                 }
+                 $(this).val(buttonLabel);
+                 //console.log('interval id=' + intervalId);
+            });
+        });//on document ready
+
+        function showNext(){
+            $('#gallery li:first-child').appendTo($('#gallery'));
+        }
+    </script>
+</body>
+</html>

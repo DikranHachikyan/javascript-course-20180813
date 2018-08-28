@@ -37,7 +37,8 @@
            var imageSuffix = '-320x240.jpg'; 
            var defaultImg = './pics-large/pic1-320x240.jpg';
 
-           $('#gallery li img').mouseover(function(){
+           $('#gallery li img').mouseover(function(event){
+                //console.log(event);
                 var imgSrc = $(this).attr('src');
                 imgSrc = imgSrc.replace('small', 'large');
 
@@ -47,7 +48,7 @@
 
                 $('#view img').attr('src', imgSrc + imageSuffix);
 
-                console.log('src:' + imgSrc + ' pos:' + pos);
+                //console.log('src:' + imgSrc + ' pos:' + pos);
            });//on mouse over
 
            $('#gallery li img').mouseout(function(){
