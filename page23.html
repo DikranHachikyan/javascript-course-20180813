@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    
+</head>
+<body>
+    <div id="view">
+        <!-- 1. да се изведе картинка i от n-->
+        <h2>Millennium Monument <span>(i/n)</span></h2>
+        <a href="http://www.teara.govt.nz/en/video/44471/neil-dawsons-chalice-cathedral-square-christchurch" title="Millennium Monument">
+            <img src="./pics-large/chch-millennium-monument320x240.png" 
+                 alt="Millennium Monument">
+        </a>
+        <p>Neil Dawson's magnificent Chalice sculpture is located in Christchurch's Cathedral Square.Chalice celebrates the new millennium and the 150th Anniversary of the founding of Christchurch</p>
+    </div>
+    
+    <input type="button" value="<<" id="prv">
+    <input type="button" value="Auto" id="slide">
+    <input type="button" value=">>" id="nxt">
+
+    <noscript>
+        Моля, разрешете изпълнението на JS за да използвате 
+        услугите на сайта!
+    </noscript>
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <script src="./js/images.js"></script>
+    <script>
+        $(document).ready(function(){
+            var index = 0,
+                path  = './pics-large/',
+                v     = $('#view');
+
+            $('#nxt').click(function(event){
+                index++;
+
+                if( index >= images.length ){
+                    index = 0;
+                }
+
+                showItem(v,images[index],path);
+            });//on click button next
+
+            //2. бутон Auto
+            $('#slide').click(function(event){
+
+            });//on click button slide
+            
+            //
+            $("#prv").click(function(event){
+                index--;
+
+                if( index < 0 ){
+                    index = images.length - 1;//последната картинка
+                }
+
+                showItem(v, images[index], path);
+            });//on click button previous 
+        });//on document ready
+
+        function showItem(gallery, item, path){
+                gallery.find('h2').html(item.title);
+                gallery.find('a').attr({  
+                                'href' : item.url, 
+                                'title': item.title
+                             });
+                gallery.find('img').attr({
+                               'src' : path + item.src,
+                               'alt' : item.alt
+                               });
+                gallery.find('p').html(item.shortinfo);    
+        }
+    </script>
+</body>
+</html>

@@ -10,7 +10,7 @@
 <body>
     <div>
         <a href="#">
-            <img src="./pics-large/pic1-320x240.jpg" id="bnr"></li>
+            <img src="./pics-large/pic6-320x240.jpg" id="bnr"></li>
         </a>
     </div>
        
@@ -30,16 +30,15 @@
                             , 'pic6-320x240.jpg'  //5
                          ];
             var path = './pics-large/';
-            var currentImageIndex = 0;
+            var currentImageIndex = images.length - 1;
             var banner = $('#bnr');
 
             setInterval(function(){
-               //HW: промяната на currentImageIndex да е с
-               //    Math.random() и приятели 
-               currentImageIndex++;
+
+               currentImageIndex--;
                
-               if( currentImageIndex >= images.length ){
-                    currentImageIndex = 0; 
+               if( currentImageIndex < 0 ){
+                    currentImageIndex = images.length - 1; 
                }
 
                banner.attr('src', path + images[currentImageIndex]);
