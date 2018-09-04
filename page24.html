@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    
+</head>
+<body>
+    <h1>FAQ</h1>
+    <dl>
+        <dt><a href="#">Lorem ipsum dolor sit amet?</a></dt>
+        <dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae molestias ipsam nihil, harum iure voluptatum, incidunt minima voluptates deserunt similique, consequatur, id eaque sapiente veniam totam sint consequuntur eius quam.
+        </dd>
+        <dt><a href="#">Quas repudiandae natus architecto?</a></dt>
+        <dd>Quas repudiandae natus architecto repellat harum provident deleniti consectetur, nesciunt debitis voluptatum sequi aliquid distinctio quisquam perspiciatis saepe, officia cum iure tenetur modi. Obcaecati autem, ipsum suscipit deserunt aliquam molestiae.</dd>
+        <dt><a href="#">Natus quas quibusdam voluptatem?</a></dt>
+        <dd>Natus quas quibusdam voluptatem, similique. Quam maxime placeat tempore tenetur? Magni voluptates, animi quas, rerum voluptatibus natus dolor dolores consequuntur praesentium quisquam. Totam, obcaecati laboriosam consectetur tenetur molestias, voluptatibus similique.</dd>
+        <dt><a href="#">Unde voluptatibus et sint accusamus totam?</a></dt>
+        <dd>Unde voluptatibus et sint accusamus totam perferendis laudantium sequi. A expedita, est mollitia tempore, temporibus excepturi quisquam ad voluptates sunt illo illum quod, iusto odio facere nihil omnis alias nisi.</dd>
+        <dt><a href="#">Fugiat accusamus ratione ipsum consequatur?</a></dt>
+        <dd>Fugiat accusamus ratione ipsum consequatur saepe earum repudiandae minus dolor! Dolorem reiciendis deleniti, eius, omnis similique, cupiditate quo nostrum sint dignissimos obcaecati necessitatibus quidem ratione quod explicabo totam, eum praesentium.</dd>
+    </dl>
+
+    <noscript>
+        Моля, разрешете изпълнението на JS за да използвате 
+        услугите на сайта!
+    </noscript>
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    
+    <script>
+        $(document).ready(function(){
+            $('dd').hide();
+
+            $('dt').click(function(){
+                $('dd').hide();
+                //$(this).next().show();
+                //$(this).next().slideToggle(1000);
+                $(this).next().fadeToggle(1000);
+            });//on dt click
+        });//on document ready
+    </script>
+</body>
+</html>

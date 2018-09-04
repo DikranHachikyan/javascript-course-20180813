@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .remove-todo{
+            margin-left: 10px;
+            font-size:1.5em;
+            color:red;
+        }
+        .done {
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+    <h1>To-Do List</h1>
+    <div>
+        <input type="text" id="title">
+        <button id="add-todo">Add</button>
+    </div>
+    <ol id="todo-list"></ol>
+    
+    <noscript>
+        Моля, разрешете изпълнението на JS за да използвате 
+        услугите на сайта!
+    </noscript>
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    
+    <script>
+        $(document).ready(function(){
+          $('#add-todo').click(function(event){
+            var title = $('#title').val();
+            var li$ = $('<li>' 
+                        +  '<span>'+ title + '</span>'
+                        +  '<label>'
+                        +       '<input type="checkbox">Done'
+                        +  '</label>'
+                        +  '<button>&times;</button>'
+                        + '</li>');
+            li$.find('input').addClass('mark');
+            li$.find('button').addClass('remove-todo');
+            $('#todo-list').append(li$);
+          });//add todo button
+
+          $('#todo-list').on('click','.mark',function(event){
+                //$(this).parents('li').toggleClass('done');
+                $(this).parent().prev().toggleClass('done');
+          });//mark as done
+          
+          $('#todo-list').on('click', '.remove-todo',function(event){
+            //this - това е бутона!!!!
+            $(this).parent().fadeOut(300, function(){
+                //this - тук е li
+                $(this).remove();
+            });//fade out
+          });//remove todo 
+        });//on document ready
+    </script>
+</body>
+</html>
